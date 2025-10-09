@@ -7,18 +7,18 @@ load_dotenv()
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('engine'),
-        'HOST': os.getenv('host'),
-        'PORT': os.getenv('port'),
-        'NAME': os.getenv('name'),
-        'USER': os.getenv('user'),
-        'PASSWORD': os.getenv('password'),
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = os.getenv('DB_SECRET_KEY')
 
 TIME_ZONE = 'Europe/Moscow'
 
