@@ -11,30 +11,35 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-- Настройте переменные окружения:
-Создайте `env` корне проекта и добавьте переменные:
-```
-engine = django.db.backends.postgresql_psycopg2
-host = localhost
-port = 4321
-name = bank_security
-user = your_username
-password = your_password
-```
-
 Python 3.13 должен быть уже установлен. 
 Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
 ```
 pip install -r requirements.txt
 ```
-Файл `requirements.txt` должен содержать `django==5.2.*`, а так же `psycopg2-binary==2.9.*`. 
+Файл `requirements.txt` должен содержать `django==5.2.*`, `python-dotenv~=1.0.0`, а так же `psycopg2-binary==2.9.*`.
+
 ## Переменные окружения 
-* `ENGINE` - движок базы данных
-* `HOST` - хост базы данных
-* `PORT` - порт базы данных
-* `NAME` - имя базы данных
-* `USER` - пользователь базы данных
-* `PASSWORD` - пароль базы данных
+* `DB_ENGINE` - движок базы данных, указывает на тип базы данных
+* `DB_HOST` - хост базы данных, адрес сервера базы данных
+* `DB_PORT` - порт на котором база данных принимает подключения
+* `DB_NAME` - конкретное имя базы данных, к которой нужно подключится
+* `DB_USER` - имя пользователя для подколючения к базе данных
+* `DB_PASSWORD` - пароль пользователя базы данных
+* `SECRET_KEY` - секретный ключ приложения, важный для безопасности
+
+Для исключения возможности попадания этих данных в чужие руки требуется создать файл `.env` в корне проекта и добавить в него следующие переменные:
+```
+DB_ENGINE = django.db.backends.postgresql_psycopg2
+DB_HOST = localhost
+DB_PORT = 4321
+DB_NAME = bank_security
+DB_USER = your_username
+DB_PASSWORD = your_password
+SECRET_KEY = your_secret_key
+```
+Каждая переменная в файле `.env` находится на новой строчке в формате `KEY=VALUE`.
+Файл должен называться именно`.env`.
+#### Важно: Файл `.env` добавляется в `.gitignore` для защиты чувствительных данных.
 
 ### Цель проекта
 
