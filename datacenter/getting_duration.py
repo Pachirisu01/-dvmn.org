@@ -17,9 +17,9 @@ def get_duration(visit):
 
 def format_duration(duration):
 	total_seconds = duration.total_seconds()
-	hours = int(duration.total_seconds() // 3600)
-	minutes = int((duration.total_seconds() % 3600) // 60)
-	return f"{hours}ч {minutes}мин"
+	hours_in_storage = int(duration.total_seconds() // 3600)
+	minutes_in_storage = int((duration.total_seconds() % 3600) // 60)
+	return f"{hours_in_storage}ч {minutes_in_storage}мин"
 
 
 def get_formatted_duration(visit):
