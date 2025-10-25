@@ -17,10 +17,10 @@ def passcard_info_view(request, passcode):
         formatted_duration = get_formatted_duration(visit)
 
         visit_info = {
-        'entered_at': timezone.localtime(visit.entered_at),
-        'duration': duration,
-        'is_strange': is_visit_long(visit),
-        }
+            'entered_at': timezone.localtime(visit.entered_at),
+            'duration': duration,
+            'is_strange': is_visit_long(visit),
+            }
 
         this_passcard_visits.append(visit_info)
 
